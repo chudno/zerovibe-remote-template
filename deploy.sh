@@ -64,7 +64,8 @@ REMOTE
 fi
 
 sync() {
-  rsync -azs "$@" \
+  # Права не переносим из рабочей папки (там 2777): на сервере папки 755, файлы 644.
+  rsync -rlptzs --chmod=D755,F644 --no-owner --no-group "$@" \
     --exclude='.git/' --exclude='.claude/' --exclude='.zerovibe/' \
     --exclude='/deploy.sh' --exclude='/README.md' --exclude='/.gitignore' \
     --exclude='.env' --exclude='.env.*' --exclude='.htaccess' --exclude='.htpasswd' \
