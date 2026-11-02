@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+vendor/
+node_modules/
+*.log
+*.sql.gz
+*.dump
+/backups/
+/dumps/
+.htpasswd
+.DS_Store
